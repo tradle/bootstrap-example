@@ -1,5 +1,7 @@
 ##Setup
 
+Install [node.js](http://nodejs.org/)
+
 Run ./setup.sh to pull in the required components
 
 Run ./joe.sh to start a Bitjoe instance
