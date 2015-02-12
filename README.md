@@ -8,9 +8,9 @@ Run ./keeper.sh to start a Bitkeeper instance
 
 ##Sample queries: 
 
-- Charge Bitjoe:
+- Charge Bitjoe (10000 satoshis in this case):
 ```
-curl -X POST -d amount=9999 http://localhost:8081/charge
+curl -X POST -d amount=10000 http://localhost:8081/charge
 ```
 - Create a public object with a given JSON file's contents
 ```
