@@ -16,6 +16,3 @@ cd bitjoe-server-js
 npm install
 cd ../bitkeeper-server-js
 npm install
-new_tab "cd ../bitjoe-server-js && node app"
-new_tab "echo example: curl -X PUT -d @../vocab/resources/business/common/basicReceipt.json http://localhost:8081/transaction?public=1"
-node app --dht=false
