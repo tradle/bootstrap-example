@@ -27,7 +27,7 @@ _This setup is for Linux and Mac OSX. We are working on a docker-based installat
     Running on port: 8000
     ```
 
-##Sample queries: 
+##Sample queries (see [docs](http://docs.tradle1.apiary.io)): 
 
 Charge Bitjoe (10000 satoshis in this case, may take 5-10 seconds):
 ```
