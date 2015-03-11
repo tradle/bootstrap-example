@@ -1,5 +1,5 @@
 ##Setup
-__This setup is for for linux and Mac OSX. We are working on a docker-based installation, which will simplify this setup.__
+_This setup is for for linux and Mac OSX. We are working on a docker-based installation, which will simplify this setup._
 
 Install [node.js](http://nodejs.org/)
 
