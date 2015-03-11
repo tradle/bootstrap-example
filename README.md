@@ -5,15 +5,27 @@ _This setup is for Linux and Mac OSX. We are working on a docker-based installat
 
 1. Install [git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-1. Git clone this repo: git clone https://github.com/tradle/bootstrap-example.git
-
-1. Run ./setup.sh to pull in the required components (stay in the same dir)
-
-1. run ./joe.sh to start a Bitjoe instance (wait till you see in the console: "running on port 8081")
-_Perform this command in a separate console but stay in the same directory_
+1. Clone this repo and run the setup script: 
+    ```
+    git clone https://github.com/tradle/bootstrap-example.git
+    cd bootstrap-example
+    ./setup.sh
+    ```
     
-1. run ./keeper.sh to start a Bitkeeper instance (wait till it stops writing to the console) 
-_Perform this command in a separate console but stay in the same directory_
+1. start a Bitjoe instance:
+    ```
+    ./joe.sh
+    Existing wallet not found at specified path, creating a new wallet
+    ...
+    Running on port 8081
+    ```
+
+1. start a Bitkeeper instance:
+    ```
+    ./keeper.sh
+    Bitkeeper is ready, starting server...
+    Running on port: 8000
+    ```
 
 ##Sample queries: 
 
