@@ -1,17 +1,17 @@
 ##Setup
-_This setup is for for linux and Mac OSX. We are working on a docker-based installation, which will simplify this setup._
+_This setup is for Linux and Mac OSX. We are working on a docker-based installation, which will simplify this setup._
 
-Install [node.js](http://nodejs.org/)
+1. Install [node.js](http://nodejs.org/)
 
-Install [git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+1. Install [git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-Git clone this repo
+1. Git clone this repo
 
-Run ./setup.sh to pull in the required components
+1. Run ./setup.sh to pull in the required components
 
-In a separate console run ./joe.sh to start a Bitjoe instance (wait till you see in the console: "running on port 8081")
+1. In a separate console run ./joe.sh to start a Bitjoe instance (wait till you see in the console: "running on port 8081")
     
-In a separate console run ./keeper.sh to start a Bitkeeper instance (wait till it stops writing to the console) 
+1. In a separate console run ./keeper.sh to start a Bitkeeper instance (wait till it stops writing to the console) 
 
 ##Sample queries: 
 
