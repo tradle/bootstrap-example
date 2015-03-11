@@ -1,8 +1,10 @@
 ##Setup
-This setup is for for linux and Mac OSX. We are working on a docker-based installation, which will simplify this setup.
+__This setup is for for linux and Mac OSX. We are working on a docker-based installation, which will simplify this setup.__
 
 Install [node.js](http://nodejs.org/)
+
 Install [git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+
 Git clone this repo
 
 Run ./setup.sh to pull in the required components
