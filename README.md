@@ -20,7 +20,7 @@ _This setup is for Linux and Mac OSX. We are working on a docker-based installat
     Running on port 8081
     ```
 
-1. start a Bitkeeper instance:
+1. start a Bitkeeper instance (in a separate console):
     ```
     ./keeper.sh
     Bitkeeper is ready, starting server...
