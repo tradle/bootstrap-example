@@ -15,6 +15,9 @@ _This setup is for Linux and Mac OSX. We are working on a docker-based installat
 1. start a Bitjoe instance:
     ```
     ./joe.sh
+    ```
+    Output:
+    ```
     Existing wallet not found at specified path, creating a new wallet
     ...
     Running on port 8081
@@ -23,6 +26,9 @@ _This setup is for Linux and Mac OSX. We are working on a docker-based installat
 1. start a Bitkeeper instance (in a separate console):
     ```
     ./keeper.sh
+    ```
+    Output:
+    ```
     Bitkeeper is ready, starting server...
     Running on port: 8000
     ```
@@ -33,6 +39,7 @@ Charge Bitjoe (10000 satoshis in this case, may take 5-10 seconds):
 ```
 curl -X POST -d amount=10000 http://127.0.0.1:8081/charge
 ```
+Output:
 ```json
 {
   "charged": 10000
@@ -42,6 +49,7 @@ Create a public object with a given JSON file's contents
 ```
 curl -X PUT -d @vocab/resources/business/common/basicReceipt.json http://127.0.0.1:8081/transaction?public=1
 ```
+Output:
 ```json
 {
   "fileKey": "c80d1b27e572a49a22930aa3d942c31291383acc",
