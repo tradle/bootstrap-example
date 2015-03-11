@@ -29,15 +29,49 @@ _This setup is for Linux and Mac OSX. We are working on a docker-based installat
 
 ##Sample queries: 
 
-Charge Bitjoe (10000 satoshis in this case):
+Charge Bitjoe (10000 satoshis in this case, may take 5-10 seconds):
 ```
 curl -X POST -d amount=10000 http://127.0.0.1:8081/charge
+```
+```json
+{
+  "charged": 10000
+}
 ```
 Create a public object with a given JSON file's contents
 ```
 curl -X PUT -d @vocab/resources/business/common/basicReceipt.json http://127.0.0.1:8081/transaction?public=1
 ```
+```json
+{
+  "fileKey": "c80d1b27e572a49a22930aa3d942c31291383acc",
+  "permissions": {},
+  "public": {
+    "020dd2eede7f9e3c01768e6df9586568405ba5518d6e62d8f56cfebfea099a2385": {
+      "txId": "0cf7020c197a7d6a08007a15464648f60b6e62540ffce879a70c7071f9e01a14",
+      "txUrl": "http://tbtc.blockr.io/tx/info/0cf7020c197a7d6a08007a15464648f60b6e62540ffce879a70c7071f9e01a14"
+    }
+  },
+  "fileUrl": "http://127.0.0.1:8000/get?key=c80d1b27e572a49a22930aa3d942c31291383acc"
+}
+```
+
 Create an object with a given JSON file's contents, store it in encrypted form and share access to it with one or more parties (read "bitcoin public keys" for now)
 ```
 curl -X PUT -d @vocab/resources/business/common/basicReceipt.json http://127.0.0.1:8081/transaction?to=024289801366bcee6172b771cf5a7f13aaecd237a0b9a1ff9d769cabc2e6b70a34
+```
+```json
+{
+  "fileKey": "23d4930d1b66d7464a1a0d0fffe2ec9f2a2c4e63",
+  "permissions": {
+    "024289801366bcee6172b771cf5a7f13aaecd237a0b9a1ff9d769cabc2e6b70a34": {
+      "txId": "e7299faadbd38b43288bc41417cf16374de7b07a659c40cf0ca0253220bb7d93",
+      "txUrl": "http://tbtc.blockr.io/tx/info/e7299faadbd38b43288bc41417cf16374de7b07a659c40cf0ca0253220bb7d93",
+      "key": "3733fc8e62ceb74713ba2694c28ce1b6d985dc79",
+      "fileUrl": "http://127.0.0.1:8000/get?key=3733fc8e62ceb74713ba2694c28ce1b6d985dc79"
+    }
+  },
+  "public": {},
+  "fileUrl": "http://127.0.0.1:8000/get?key=23d4930d1b66d7464a1a0d0fffe2ec9f2a2c4e63"
+}
 ```
