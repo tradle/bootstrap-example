@@ -1,14 +1,44 @@
-## Setup
+##Setup
+_This setup is for Linux and Mac OSX. We are working on a docker-based installation, which will simplify this setup._
 
-    Run ./setup.sh to pull in the required components
+1. Install [node.js](http://nodejs.org/)
 
-    Run ./joe.sh to start a Bitjoe instance
+1. Install [git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+
+1. Clone this repo and run the setup script: 
+    ```
+    git clone https://github.com/tradle/bootstrap-example.git
+    cd bootstrap-example
+    ./setup.sh
+    ```
     
-    Run ./keeper.sh to start a Bitkeeper instance
+1. start a Bitjoe instance:
+    ```
+    ./joe.sh
+    ```
+    Output:
+    ```
+    Existing wallet not found at specified path, creating a new wallet
+    ...
+    Running on port 8081
+    ```
 
-## Sample queries: 
+1. start a Bitkeeper instance (in a separate console):
+    ```
+    ./keeper.sh
+    ```
+    Output:
+    ```
+    Bitkeeper is ready, starting server...
+    Running on port: 8000
+    ```
 
-### Charge Bitjoe
+## Sample queries (see [docs](http://docs.tradle1.apiary.io))
+
+###Charge Bitjoe (10000 satoshis in this case, may take 5-10 seconds)
+
+_Only available when running on testnet_
+
     curl -X POST -d "amount=10000" http://localhost:8081/charge
 
 ```json
@@ -34,9 +64,27 @@
 }
 ```
 
+### Create a public object with a given JSON file's contents
+
+    curl -X PUT -d @vocab/resources/business/common/basicReceipt.json http://127.0.0.1:8081/transaction?public=1
+
+```json
+{
+  "fileKey": "c80d1b27e572a49a22930aa3d942c31291383acc",
+  "permissions": {},
+  "public": {
+    "020dd2eede7f9e3c01768e6df9586568405ba5518d6e62d8f56cfebfea099a2385": {
+      "txId": "0cf7020c197a7d6a08007a15464648f60b6e62540ffce879a70c7071f9e01a14",
+      "txUrl": "http://tbtc.blockr.io/tx/info/0cf7020c197a7d6a08007a15464648f60b6e62540ffce879a70c7071f9e01a14"
+    }
+  },
+  "fileUrl": "http://127.0.0.1:8000/get?key=c80d1b27e572a49a22930aa3d942c31291383acc"
+}
+```
+
 ### "Modify" an object 
 
-(Note: uses chaining, as everything on blockchain is immutable)
+_uses chaining, as everything on blockchain is immutable_
 
     curl -X PUT -d '{"name":"Squinty", "age":154, "_prev":"8da939ce8be6d6b563b382f5c9d2eb20f454e0ce"}' http://localhost:8081/transaction?public=1
 
@@ -153,3 +201,4 @@ By default, this setup runs on Bitcoin Testnet 3. The built-in wallet will charg
 At this point, you can charge the wallet with:
 
     curl -X POST -d "amount=10000" http://localhost:8081/charge
+
