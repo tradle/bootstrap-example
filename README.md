@@ -20,7 +20,7 @@ _This setup is for Linux and Mac OSX. We are working on a docker-based installat
     ```
     Existing wallet not found at specified path, creating a new wallet
     ...
-    Running on port 8081
+    Running on port 25556
     ```
 
 1. start a Bitkeeper instance (in a separate console):
@@ -30,7 +30,7 @@ _This setup is for Linux and Mac OSX. We are working on a docker-based installat
     Output:
     ```
     Bitkeeper is ready, starting server...
-    Running on port: 8000
+    Running on port: 25667
     ```
 
 ## Sample queries (see [docs](http://docs.tradle1.apiary.io))
@@ -39,7 +39,7 @@ _This setup is for Linux and Mac OSX. We are working on a docker-based installat
 
 _Only available when running on testnet_
 
-    curl -X POST -d "amount=10000" http://localhost:8081/charge
+    curl -X POST -d "amount=10000" http://localhost:25556/charge
 
 ```json
 {
@@ -48,7 +48,7 @@ _Only available when running on testnet_
 ```
 
 ###Create an object
-    curl -X PUT -d '{"name":"Squinty"}' http://localhost:8081/transaction?public=1
+    curl -X PUT -d '{"name":"Squinty"}' http://localhost:25556/transaction?public=1
 
 ```json
 {
@@ -66,7 +66,7 @@ _Only available when running on testnet_
 
 ### Create a public object with a given JSON file's contents
 
-    curl -X PUT -d @vocab/resources/business/common/basicReceipt.json http://127.0.0.1:8081/transaction?public=1
+    curl -X PUT -d @vocab/resources/business/common/basicReceipt.json http://127.0.0.1:25556/transaction?public=1
 
 ```json
 {
@@ -86,7 +86,7 @@ _Only available when running on testnet_
 
 _uses chaining, as everything on blockchain is immutable_
 
-    curl -X PUT -d '{"name":"Squinty", "age":154, "_prev":"8da939ce8be6d6b563b382f5c9d2eb20f454e0ce"}' http://localhost:8081/transaction?public=1
+    curl -X PUT -d '{"name":"Squinty", "age":154, "_prev":"8da939ce8be6d6b563b382f5c9d2eb20f454e0ce"}' http://localhost:25556/transaction?public=1
 
 ```json
 {
@@ -103,7 +103,7 @@ _uses chaining, as everything on blockchain is immutable_
 ```
 
 ###Create and object, encrypt and store it and share access to it
-    curl -X PUT -d '{"message":"I love you, Phillip Morris!"}' http://localhost:8081/transaction?to=024289801366bcee6172b771cf5a7f13aaecd237a0b9a1ff9d769cabc2e6b70a34
+    curl -X PUT -d '{"message":"I love you, Phillip Morris!"}' http://localhost:25556/transaction?to=024289801366bcee6172b771cf5a7f13aaecd237a0b9a1ff9d769cabc2e6b70a34
 
 ```json
 {
@@ -124,17 +124,17 @@ _uses chaining, as everything on blockchain is immutable_
 ## Real(er) world examples: 
 
 ### Create a model for Person
-    curl -X PUT -d '{"type":"Person"}' http://localhost:8081/transaction?public=1
+    curl -X PUT -d '{"type":"Person","properties":{"firstName":{}}}' http://localhost:25556/transaction?public=1
 
 ```json
 {
-  "fileKey": "1c6ce6c22e41033895e419366490fa8018e180ae",
+  "fileKey": "2ceac9874a42ec5823fd92cc5d3ee918c7ffc85a",
   "...": "..."
 }
 ```
 
 ### Create a model for Friend
-    curl -X PUT -d '{"type":"Friend","properties":{"friend1":{},"friend2":{}}}' http://localhost:8081/transaction?public=1
+    curl -X PUT -d '{"type":"Friend","properties":{"friend1":{},"friend2":{}}}' http://localhost:25556/transaction?public=1
 
 ```json
 {
@@ -144,7 +144,7 @@ _uses chaining, as everything on blockchain is immutable_
 ```
 
 ### Create Athos, a resource of type Person
-    curl -X PUT -d '{"_type":"Person","_type_hash":"1c6ce6c22e41033895e419366490fa8018e180ae","firstName":"Athos"}' http://localhost:8081/transaction?public=1
+    curl -X PUT -d '{"_type":"Person","_type_hash":"2ceac9874a42ec5823fd92cc5d3ee918c7ffc85a","firstName":"Athos"}' http://localhost:25556/transaction?public=1
 
 ```json
 {
@@ -154,7 +154,7 @@ _uses chaining, as everything on blockchain is immutable_
 ```
 
 ### Create Porthos, a resource of type Person
-    curl -X PUT -d '{"_type":"Person","_type_hash":"1c6ce6c22e41033895e419366490fa8018e180ae","firstName":"Porthos"}' http://localhost:8081/transaction?public=1
+    curl -X PUT -d '{"_type":"Person","_type_hash":"2ceac9874a42ec5823fd92cc5d3ee918c7ffc85a","firstName":"Porthos"}' http://localhost:25556/transaction?public=1
 
 ```json
 {
@@ -164,7 +164,7 @@ _uses chaining, as everything on blockchain is immutable_
 ```
 
 ### Make Athos and Porthos friends
-    curl -X PUT -d '{"_type":"Friend","_type_hash":"b843cfe2d6ddc70575afa9f4968f317851332e88","friend1":"6b83099a715b71279e18b82948a9dff5f8f3c5e7","friend2":"3fe81f073a1b5be665b15908837d4b0e0f84d0bc"}' http://localhost:8081/transaction?public=1
+    curl -X PUT -d '{"_type":"Friend","_type_hash":"b843cfe2d6ddc70575afa9f4968f317851332e88","friend1":"6b83099a715b71279e18b82948a9dff5f8f3c5e7","friend2":"3fe81f073a1b5be665b15908837d4b0e0f84d0bc"}' http://localhost:25556/transaction?public=1
 
 ```json
 {
@@ -174,7 +174,7 @@ _uses chaining, as everything on blockchain is immutable_
 ```
 
 ### Change Athos' name to Lavos
-    curl -X PUT -d '{"_type":"Person","_type_hash":"1c6ce6c22e41033895e419366490fa8018e180ae","_prev":"6b83099a715b71279e18b82948a9dff5f8f3c5e7","firstName":"Lavos"}' http://localhost:8081/transaction?public=1
+    curl -X PUT -d '{"_type":"Person","_type_hash":"2ceac9874a42ec5823fd92cc5d3ee918c7ffc85a","_prev":"6b83099a715b71279e18b82948a9dff5f8f3c5e7","firstName":"Lavos"}' http://localhost:25556/transaction?public=1
 
 ```json
 {
@@ -200,5 +200,5 @@ By default, this setup runs on Bitcoin Testnet 3. The built-in wallet will charg
 
 At this point, you can charge the wallet with:
 
-    curl -X POST -d "amount=10000" http://localhost:8081/charge
+    curl -X POST -d "amount=10000" http://localhost:25556/charge
 
