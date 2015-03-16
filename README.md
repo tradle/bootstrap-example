@@ -185,7 +185,7 @@ _uses chaining, as everything on blockchain is immutable_
 
 ### Debate whether Athos and Porthos are still friends
 
-Left as an exercise to the developer
+_Left as an exercise to the developer_
 
 ## Troubleshooting
 
