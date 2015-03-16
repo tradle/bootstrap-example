@@ -189,7 +189,7 @@ Left as an exercise to the developer
 
 ## Troubleshooting
 
-By default, this setup runs on Bitcoin Testnet 3. The built-in wallet will charge at birth, but after putting the Three Musketeers on chain, you may see:
+By default, this setup runs on Bitcoin Testnet 3. The built-in wallet will charge at birth, but while putting the Three Musketeers on chain, you may see:
 
 ```json
 {
