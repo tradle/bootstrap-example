@@ -1,3 +1,2 @@
 #!/bin/bash
-cd /bitkeeper-server-js 
-exec DEBUG=* node app --dht=false
+cd bitkeeper-server-js && DEBUG=* node app --dht=false

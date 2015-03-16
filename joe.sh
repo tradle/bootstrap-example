@@ -1,3 +1,2 @@
 #!/bin/bash
-cd /bitjoe-server-js 
-exec DEBUG=* node app
+cd bitjoe-server-js && DEBUG=* node app
