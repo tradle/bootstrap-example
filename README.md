@@ -1,5 +1,5 @@
 ##Setup
-_This setup is for Linux and Mac OSX. We are working on a docker-based installation, which will simplify this setup._
+_The setup is for Linux and Mac OSX. Aletrnatively on all platforms, including Windows you can use docker-based setup, described at the end of this article._
 
 1. Install [node.js](http://nodejs.org/)
 
