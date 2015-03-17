@@ -205,23 +205,24 @@ At this point, you can charge the wallet with:
 ## Alternative way to setup, using a docker
 To run a docker container
 
-    docker run --rm -p 25556:25556 -p 8383:8080 -t -i pgmglv/tradle-cpp-ethereum /sbin/my_init -- bash -l
+    docker run --rm -p 25556:25556 -p 8383:8080 -p 25889:25889 -p 25778:25778/udp -p 30303:30303 -p 30303:30303/udp -t -i pgmglv/tradle-cpp-ethereum /sbin/my_init -- bash -l
 
 And that is it! 
+You can now talk to bitjoe:
 
-The only small step left is for Mac OSX and Windows. On these machines docker is running inside a virtual machine and we need to find its address. On Mac the standard docker setup is via boot2docker (please help me out with the Windows setup). So if you are using boot2docker, run:
+    curl -X POST -d "amount=10000" http://$(boot2docker ip):25556/charge
 
-    boot2docker ip
+This command is for Mac OS X. On Mac docker is running inside a virtual machine and we can't use localhost and instead need to find VM's address. On Mac the standard docker setup is via boot2docker (please help me out with the Windows setup) and ['boot2docker ip' returns VM's IP address](http://webiphany.com/technology/2014/06/12/what-ip-do-i-access-when-using-docker-and-boot2docker.html).
 
-as [described in this tutorial](http://webiphany.com/technology/2014/06/12/what-ip-do-i-access-when-using-docker-and-boot2docker.html). On my machine it returns 192.168.59.103
+Note on ports: 
+1. 25556 - bitjoe, HTTP
+1. 25889 - bitkeeper torrenting, TCP
+1. 25778 - bitkeeper DHT, UDP
+1. 30303 - ethereum, both TCP and UDP
 
-Now you can talk to bitjoe (using this IP and port 25556), for example:
+Bonus: this docker image runs Ethereum full node. To test Ethereum JSON-RPC:
 
-    curl -X POST -d "amount=10000" http://192.168.59.103:25556/charge
-
-Bonus: this docker image runs Ethereum too. To test Ethereum JSON-RPC using this IP and port 8383:
-
-    curl -X POST --data '{"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c6f20776f726c64"],"id":64}' http://192.168.59.103:8383
+    curl -X POST --data '{"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c6f20776f726c64"],"id":64}' http://$(boot2docker ip):8383
 
 You should get something like this:
 
