@@ -218,5 +218,6 @@ You should get something like this:
     {"id":64,"jsonrpc":"2.0","result":"0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"}
 
 Now you can talk to bitjoe (using this IP and port 25556), for example:
+
     curl -X POST -d "amount=10000" http://192.168.59.103:25556/charge
 
