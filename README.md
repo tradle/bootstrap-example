@@ -215,6 +215,7 @@ You can now talk to bitjoe:
 This command is for Mac OS X. On Mac docker is running inside a virtual machine and we can't use localhost and instead need to find VM's address. On Mac the standard docker setup is via boot2docker (please help me out with the Windows setup) and ['boot2docker ip' returns VM's IP address](http://webiphany.com/technology/2014/06/12/what-ip-do-i-access-when-using-docker-and-boot2docker.html).
 
 Note on ports: 
+
 1. 25556 - bitjoe, HTTP
 1. 25889 - bitkeeper torrenting, TCP
 1. 25778 - bitkeeper DHT, UDP
