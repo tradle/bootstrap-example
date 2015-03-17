@@ -209,7 +209,7 @@ To run a docker container
 
 And that is it! 
 
-The only small step left is for Mac OSX and Windows. In these machines docker is running inside a virtual machine and we need to find its address. On Mac the standard docker setup is via boot2docker (please help me out with the Windows setup). So if you are using boot2docker, run:
+The only small step left is for Mac OSX and Windows. On these machines docker is running inside a virtual machine and we need to find its address. On Mac the standard docker setup is via boot2docker (please help me out with the Windows setup). So if you are using boot2docker, run:
 
     boot2docker ip
 
