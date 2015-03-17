@@ -202,3 +202,21 @@ At this point, you can charge the wallet with:
 
     curl -X POST -d "amount=10000" http://localhost:25556/charge
 
+## Alternative way to setup, using a docker
+To run a docker container
+
+    docker run --rm -p 25556:25556 -p 8383:8080 -t -i pgmglv/tradle-cpp-ethereum /sbin/my_init -- bash -l
+
+On Mac, if you are using boot2docker, run boot2docker ip, as [described in this tutorial](http://webiphany.com/technology/2014/06/12/what-ip-do-i-access-when-using-docker-and-boot2docker.html). On my machine it returns 192.168.59.103
+
+Test Ethereum JSON-RPC using this IP and port 8383
+
+    curl -X POST --data '{"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c6f20776f726c64"],"id":64}' http://192.168.59.103:8383
+
+You should get something like this:
+
+    {"id":64,"jsonrpc":"2.0","result":"0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"}
+
+Now you can talk to bitjoe (using this IP and port 25556), for example:
+    curl -X POST -d "amount=10000" http://192.168.59.103:25556/charge
+
