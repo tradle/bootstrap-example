@@ -205,7 +205,7 @@ At this point, you can charge the wallet with:
 ## Alternative way to setup, using a docker
 To run a docker container
 
-    docker run --rm -p 25556:25556 -p 8383:8080 -p 25889:25889 -p 25778:25778/udp -p 30303:30303 -p 30303:30303/udp -t -i pgmglv/tradle-cpp-ethereum /sbin/my_init -- bash -l
+    docker run --rm -p 25556:25556 -p 8383:8080 -p 25889:25889 -p 25778:25778/udp -p 30303:30303 -p 30303:30303/udp --env DOCKER_HOST=$DOCKER_HOST -t -i pgmglv/tradle-cpp-ethereum 
 
 And that is it! 
 You can now talk to bitjoe:
